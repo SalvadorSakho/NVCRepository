@@ -1,0 +1,8 @@
+Stage contextStage = new Stage();
+contextStage.initModality(Modality.APPLICATION_MODAL);
+contextStage.initOwner(null);
+VBox dialogVbox = new VBox(20);
+dialogVbox.getChildren().add(new Text("This is a Dialog"));
+Scene dialogScene = new Scene(dialogVbox, 300, 200);
+contextStage.setScene(dialogScene);
+contextStage.show();

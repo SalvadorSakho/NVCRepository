@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="mainPane" prefHeight="684.0" prefWidth="1450.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NVC.Service.Controller">
+    <children>
+        <TableView fx:id="tableInterfaceInfo" editable="true" layoutY="148.0" onContextMenuRequested="#menuRequest" onMousePressed="#mousDoublePress" prefHeight="365.0" prefWidth="1440.0" tableMenuButtonVisible="true">
+            <columns>
+                <TableColumn fx:id="colomn1" maxWidth="1250.0" minWidth="-Infinity" prefWidth="-1.0" text="Ид дела" />
+                <TableColumn fx:id="colomn2" maxWidth="2300.0" minWidth="-Infinity" prefWidth="182.0" text="Проект" />
+                <TableColumn fx:id="colomn3" maxWidth="2400.0" minWidth="-Infinity" prefWidth="74.0" text="Автор контакта" />
+                <TableColumn fx:id="colomn4" maxWidth="2000.0" minWidth="-Infinity" prefWidth="-1.0" text="Субъект" />
+                <TableColumn fx:id="colomn5" maxWidth="2200.0" minWidth="-Infinity" prefWidth="-1.0" text="Результат контакта" />
+                <TableColumn fx:id="colomn6" maxWidth="2000.0" minWidth="-Infinity" prefWidth="-1.0" text="Номер телефона" />
+                <TableColumn fx:id="colomn7" maxWidth="2100.0" minWidth="-Infinity" prefWidth="147.0" text="Дата\время звонка" />
+                <TableColumn fx:id="colomn8" maxWidth="1500.0" minWidth="-Infinity" prefWidth="192.0" text="Длительность" />
+                <TableColumn fx:id="colomn9" maxWidth="1500.0" minWidth="-Infinity" prefWidth="107.0" text="Направление" />
+                <TableColumn fx:id="colomn10" maxWidth="1300.0" minWidth="-Infinity" prefWidth="-1.0" text="Задача" />
+                <TableColumn fx:id="colomn11" maxWidth="2500.0" minWidth="-Infinity" prefWidth="-1.0" text="recordurl" visible="false" />
+            <TableColumn fx:id="colomn12" maxWidth="2000.0" minWidth="-Infinity" prefWidth="-1.0" text="закончил разговор" />
+            </columns>
+            <cursor>
+                <Cursor fx:constant="DEFAULT" />
+            </cursor>
+            <effect>
+                <ColorAdjust />
+            </effect>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+        </TableView>
+        <Button fx:id="playBtn" layoutX="17.0" layoutY="525.0" mnemonicParsing="false" onAction="#playSound" prefHeight="25.0" prefWidth="135.0" text="Проигрывать запись" />
+        <TextArea fx:id="systemOutput" editable="false" layoutX="970.0" layoutY="525.0" minHeight="25.0" prefHeight="25.0" prefWidth="333.0" promptText="Сообщения системы" />
+        <Button fx:id="saveBtn" layoutX="17.0" layoutY="598.0" mnemonicParsing="false" onAction="#saveFile" prefHeight="25.0" prefWidth="183.0" text="Сохранить запись разговора" />
+        <DatePicker fx:id="calendarView" layoutX="289.0" layoutY="69.0" promptText="Дата начала выборки" />
+        <TextArea fx:id="caseIdArea" layoutX="13.0" layoutY="69.0" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="252.0" promptText="введите Ид дела" wrapText="true" />
+        <Button fx:id="pauseBtn" layoutX="17.0" layoutY="560.0" mnemonicParsing="false" onAction="#pauseAction" prefHeight="25.0" prefWidth="135.0" text="Пауза" />
+        <Slider fx:id="sliderSound" layoutX="163.0" layoutY="524.0" prefHeight="55.0" prefWidth="788.0" showTickLabels="true" showTickMarks="true">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Slider>
+      <DatePicker fx:id="calendarViewEnd" layoutX="478.0" layoutY="69.0" promptText="Конечная дата выборки" />
+      <Button fx:id="selectBTN" layoutY="104.0" mnemonicParsing="false" onMouseClicked="#select" prefHeight="42.0" prefWidth="1318.0" style="-fx-background-color: #c0c0c0; -fx-border-color: #000000; -fx-border-width: 3;" text="ПОИСК" textAlignment="CENTER" textFill="#141313" textOverrun="WORD_ELLIPSIS">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <ColorAdjust />
+         </effect></Button>
+      <Separator layoutX="268.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="107.0" prefWidth="20.0" />
+      <Separator layoutX="655.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="107.0" prefWidth="20.0" />
+      <Text fontSmoothingType="LCD" layoutX="282.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Поиск по дате" textAlignment="CENTER" wrappingWidth="384.13671875" />
+      <Text fontSmoothingType="LCD" layoutX="17.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Поиск по ИД дела" textAlignment="CENTER" wrappingWidth="246.0" />
+      <Text fontSmoothingType="LCD" layoutX="745.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Поиск по специалисту \телефону \результату контакта \номеру телефона" textAlignment="CENTER" wrappingWidth="384.13671875" />
+      <ComboBox fx:id="groupListView" layoutX="670.0" layoutY="34.0" onMouseClicked="#openGroupList" prefWidth="150.0" promptText="Группа" />
+      <ComboBox fx:id="specialistListView" editable="true" layoutX="670.0" layoutY="69.0" onMouseClicked="#openUsersList" prefHeight="25.0" prefWidth="150.0" promptText="Специалист" />
+      <TextArea fx:id="phoneArea" layoutX="1037.0" layoutY="69.0" maxHeight="25.0" maxWidth="280.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="280.0" promptText="Номер телефона" wrapText="true" />
+      <ComboBox fx:id="contactResultBtn" layoutX="830.0" layoutY="34.0" onMouseClicked="#openResultList" prefHeight="25.0" prefWidth="200.0" promptText="Результат контакта" />
+      <ImageView fx:id="animation" fitHeight="90.0" fitWidth="86.0" layoutX="1335.0" layoutY="10.0" smooth="false">
+         <image>
+            <Image url="image_861901160039058981586.gif" />
+         </image>
+         <effect>
+            <SepiaTone level="0.0" />
+         </effect>
+      </ImageView>
+      <ProgressIndicator fx:id="progressIdicator" layoutX="1316.0" layoutY="545.0" prefHeight="117.0" prefWidth="116.0" progress="0.0" visible="false" />
+      <ComboBox fx:id="projectBtn" editable="true" layoutX="831.0" layoutY="68.0" onMouseClicked="#openProjectList" prefHeight="25.0" prefWidth="200.0" promptText="Поиск по проекту" />
+      <Label fx:id="fortimeArea" layoutX="167.0" layoutY="577.0" prefHeight="17.0" prefWidth="231.0" text="00:00" />
+      <Button fx:id="rewindBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="212.0" layoutY="598.0" mnemonicParsing="false" onMouseClicked="#rewind" prefHeight="25.0" prefWidth="76.0" textAlignment="CENTER" textOverrun="CLIP" />
+      <Button fx:id="forwardBtn" layoutX="300.0" layoutY="598.0" mnemonicParsing="false" onMouseClicked="#forward" prefHeight="25.0" prefWidth="76.0" textAlignment="CENTER" textOverrun="CLIP" />
+      <Button fx:id="deleteFiltersBtn" layoutX="17.0" layoutY="633.0" mnemonicParsing="false" onAction="#deleteFilters" prefHeight="25.0" prefWidth="183.0" text="Убрать все фильтры" />
+      <Button fx:id="stopSearchingBtn" layoutX="1333.0" layoutY="110.0" mnemonicParsing="false" onMouseClicked="#stopSearching" prefHeight="34.0" prefWidth="104.0" style="-fx-background-color: #c0c0c0; -fx-border-color: #000000; -fx-border-width: 3;" text="стоп поиска">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <ColorAdjust />
+         </effect>
+      </Button>
+    </children>
+   <effect>
+      <Blend mode="MULTIPLY" />
+   </effect>
+</Pane>
