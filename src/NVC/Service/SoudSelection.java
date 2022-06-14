@@ -19,11 +19,11 @@ import java.sql.PreparedStatement;
 public class SoudSelection {
     private Connection con;
     private ResultSet rs;
-    private String server = "DELTA";
-    private String database = "ucgreports";
-    private String port = "1433";
-    private String user = "oktellrecords";
-    private String password = "oktellrecords12345";
+    private String server = "";
+    private String database = "";
+    private String port = "";
+    private String user = "";
+    private String password = "";
     private String jdbcUrl = "jdbc:sqlserver://" + server + ":" + port + ";user=" + user + ";password=" + password + ";databaseName=" + database;
     private PreparedStatement pstmt;
 
